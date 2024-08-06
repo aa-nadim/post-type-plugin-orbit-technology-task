@@ -34,7 +34,6 @@ class Team_Member_CPT extends Custom_Post_Type {
         add_action('save_post', array($this, 'save_position_meta_box'));
 
         add_filter('single_template', array($this, 'load_single_template'));
-        add_filter('archive_template', array($this, 'load_archive_template'));
     }
 
     public function redirect_team_member_archive() {
@@ -93,19 +92,6 @@ class Team_Member_CPT extends Custom_Post_Type {
             }
         }
         return $single_template;
-    }
-
-    public function load_archive_template($archive_template) {
-        if (is_post_type_archive('team_member')) {
-            $template_path = plugin_dir_path(__FILE__) . '../templates/archive-team_member.php';
-            if (file_exists($template_path)) {
-                echo 'Template found: ' . $template_path; // Debug line
-                return $template_path;
-            } else {
-                echo 'Template not found: ' . $template_path; // Debug line
-            }
-        }
-        return $archive_template;
     }
 
 
