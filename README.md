@@ -27,3 +27,9 @@ If you can do the following things it will added as an advantage but this are no
  Try to do everything in Object Oriented PHP.
 
 ```
+
+[team_members number="-1" image_position="top" show_all_button="true"]
+
+number="-1" will show all team members.
+image_position="top" will position the image above the content.
+show_all_button="true" will display the "See All" button.

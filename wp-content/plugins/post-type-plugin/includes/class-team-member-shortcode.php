@@ -14,13 +14,13 @@ class Team_Member_Shortcode {
             array(
                 'number' => 5,
                 'image_position' => 'top',
-                'show_see_all' => true,
+                'show_all_button' => 'true', // Changed to match the shortcode attribute
             ), $atts, 'team_members'
         );
 
         $args = array(
             'post_type' => 'team_member',
-            'posts_per_page' => $atts['number'],
+            'posts_per_page' => intval($atts['number']),
         );
 
         $query = new WP_Query($args);
@@ -48,7 +48,7 @@ class Team_Member_Shortcode {
             }
         </style>';
         
-        $output .= '<div class="container ">';
+        $output .= '<div class="container">';
 
         $output .= '<div class="row team-members">';
 
@@ -61,15 +61,15 @@ class Team_Member_Shortcode {
                 $image = get_the_post_thumbnail(get_the_ID(), 'thumbnail', array('class' => 'img-fluid'));
 
                 $output .= '<div class="team-member">';
-                if ($atts['image_position'] == 'top') {
+                if ($atts['image_position'] === 'top') {
                     $output .= '<div class="team-member-image">' . $image . '</div>';
                 }
                 $output .= '<div class="team-member-info">';
                 $output .= '<h3 class="team-member-name"><a href="' . get_permalink() . '">' . $name . '</a></h3>';
-                $output .= '<p class="team-member-position">' . $position . '</p>';
+                $output .= '<p class="team-member-position">' . esc_html($position) . '</p>';
                 $output .= '<p class="team-member-bio">' . $bio . '</p>';
                 $output .= '</div>';
-                if ($atts['image_position'] == 'bottom') {
+                if ($atts['image_position'] === 'bottom') {
                     $output .= '<div class="team-member-image">' . $image . '</div>';
                 }
                 $output .= '</div>'; // End team-member
@@ -79,9 +79,10 @@ class Team_Member_Shortcode {
 
         $output .= '</div>'; // End row
 
-        if ($atts['show_see_all']) {
-            $output .= '<div class="see-all">';
-            $output .= '<a class="" href="' . get_post_type_archive_link('team_member') . '">See All</a>';
+        // Check if the "See All" button should be displayed
+        if ($atts['show_all_button'] === 'true') {
+            $output .= '<div class="see-all text-center">';
+            $output .= '<a class="btn btn-primary" href="' . get_post_type_archive_link('team_member') . '">See All</a>';
             $output .= '</div>';
         }
 
@@ -89,3 +90,4 @@ class Team_Member_Shortcode {
         return $output;
     }
 }
+
