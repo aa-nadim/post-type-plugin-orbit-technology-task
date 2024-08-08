@@ -1,35 +1,40 @@
 # post-type-plugin-orbit-technology-task
 
-```
-Register a post type named ‘Team Member’. Each team member has a Name, Picture, Bio and
-Position.
- Register a taxonomy to that post type named ‘Member type’. Should be hierarchical.
+## How you can see the project
 
- Output should return by a shortcode named ‘team_members’.
+0. download or git clone my github repository `https://github.com/aa-nadim/post-type-plugin-orbit-technology-task`
 
-//not done yet
- Shortcode must accept 3 parameters, number of team members to show, the position of image
-in the html template and if display or not ‘See all’ Button (See Figure 1.0 for example).***
+1. setup WAMP
 
- There should be 2 designs of template based on shortcode parameters, first one is image
-position on top and second one is image position on bottom. Default is image position on top.
+2. download wordpress --> `https://wordpress.org/latest.zip`
 
- Output returned by shortcode must have a button to go the archive page of all team members.
-By default, this button is visible. See the sample below:
+3. in WAMP, copy paste the wordpress folder
 
- Name and Image should be clickable and on click they should go to single page where bio of
-team member will also display.
- Design is up to you.
-Bonus options:
-If you can do the following things it will added as an advantage but this are not required.
- Pagination in archive page.
- A settings page for changing Post type name and URL slug.
- Try to do everything in Object Oriented PHP.
+4. in `C:\wamp64\www\OrbitTech\wp-content\plugins`, copy paste `https://github.com/aa-nadim/post-type-plugin-orbit-technology-task/tree/main/wp-content/plugins/post-type-plugin`. for theme you can install new 'twenty twenty one' theme. i am using twenty twenty one theme.
+
+5. Activate the 'Post Type Plugin' plugin.
+
+6. Now add or create more than one team members. and create a page called "Team Member" where slug is "team-member".
+
+7. Now edit the "Team Member" page and add short code
 
 ```
-
 [team_members number="-1" image_position="top" show_all_button="true"]
 
 number="-1" will show all team members.
 image_position="top" will position the image above the content.
 show_all_button="true" will display the "See All" button.
+
+```
+
+8. Now you can check the short code and see the "Team Member" page.
+
+9. I also added the database. you can input it into phpmyadmin. `https://github.com/aa-nadim/post-type-plugin-orbit-technology-task/tree/main/database/orbittech.sql`
+
+## Project's demo
+
+![Xstore admin](https://raw.githubusercontent.com/aa-nadim/post-type-plugin-orbit-technology-task/main/database/1.png)
+
+![Xstore Single Product](https://raw.githubusercontent.com/aa-nadim/post-type-plugin-orbit-technology-task/main/database/2.png)
+
+![XStore Cart](https://raw.githubusercontent.com/aa-nadim/post-type-plugin-orbit-technology-task/main/database/3.png)

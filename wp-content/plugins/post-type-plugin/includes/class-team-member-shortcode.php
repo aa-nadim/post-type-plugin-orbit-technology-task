@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit;
 }
 
 class Team_Member_Shortcode {
@@ -14,7 +14,7 @@ class Team_Member_Shortcode {
             array(
                 'number' => 5,
                 'image_position' => 'top',
-                'show_all_button' => 'true', // Changed to match the shortcode attribute
+                'show_all_button' => 'true',
             ), $atts, 'team_members'
         );
 
@@ -28,20 +28,20 @@ class Team_Member_Shortcode {
         $output = '<style>
             .team-members {
                 display: flex;
-                flex-wrap: wrap; /* Allows items to wrap onto multiple lines */
-                gap: 20px; /* Adjust gap between items */
-                margin: -10px; /* Adjust margin to handle spacing correctly */
+                flex-wrap: wrap; 
+                gap: 20px;
+                margin: -10px;
             }
             .team-member {
-                flex: 1 1 calc(16.66% - 20px); /* 6 items per row with gap included */
+                flex: 1 1 calc(16.66% - 20px); 
                 box-sizing: border-box;
-                padding: 10px; /* Adjust padding as needed */
+                padding: 10px;
             }
             .team-member-image {
-                text-align: center; /* Center image if needed */
+                text-align: center; 
             }
             .team-member-info {
-                text-align: center; /* Center content if needed */
+                text-align: center; 
             }
             .see-all {
                 margin-top: 50px;
